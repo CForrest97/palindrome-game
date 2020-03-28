@@ -1,4 +1,5 @@
 import Score from '../interfaces/Score.interface';
+import PalindromeError from '../errors/PalindromeError';
 import { isPalindrome, trimWord } from '../helpers/Palindrome.helper';
 
 export default class PalindromeGame {
@@ -13,7 +14,7 @@ export default class PalindromeGame {
 
   public addEntry(name: string, word: string) {
     if (!isPalindrome(word)) {
-      throw new Error(`"${word}" is not a palindrome`);
+      throw new PalindromeError(`"${word}" is not a palindrome`);
     }
     const trimmedWord = trimWord(word);
     this.scores.push({ name, points: trimmedWord.length });

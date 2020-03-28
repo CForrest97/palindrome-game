@@ -1,4 +1,5 @@
 import PalindromeGame from './PalindromeGame.service';
+import PalindromeError from '../errors/PalindromeError';
 
 describe('palindrome game', () => {
   it('should get top scores for empty game', () => {
@@ -53,6 +54,7 @@ describe('palindrome game', () => {
   it('should throw an error if the word is NOT a palindrome', () => {
     const palindromeGame = new PalindromeGame();
 
+    expect(() => palindromeGame.addEntry('alice', 'abacus')).toThrow(PalindromeError);
     expect(() => palindromeGame.addEntry('alice', 'abacus')).toThrowError('"abacus" is not a palindrome');
   });
 });
