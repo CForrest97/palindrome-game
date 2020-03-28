@@ -1,4 +1,4 @@
-import PalindromeGame from './palindromeGame.service';
+import PalindromeGame from './PalindromeGame.service';
 
 describe('palindrome game', () => {
   it('should get top scores for empty game', () => {
