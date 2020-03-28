@@ -37,7 +37,8 @@ module.exports = {
       "vars": "all",
       "args": "after-used",
       "ignoreRestSiblings": false
-    }]
+    }],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
   },
   settings: {
     'import/resolver': {

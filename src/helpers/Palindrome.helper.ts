@@ -1,6 +1,6 @@
-const trimWord = (word: string) => word.replace(/\s/g, '');
+const trimWord = (word: string): string => word.replace(/\s/g, '');
 
-const isPalindrome = (word: string) => {
+const isPalindrome = (word: string): boolean => {
   const trimmedWord = trimWord(word);
   return trimmedWord.split('').reverse().join('') === trimmedWord;
 };

@@ -8,6 +8,7 @@ module.exports = (config) => {
       'src/**/*.ts',
       '!src/**/*.test.ts',
       '!src/app.ts',
+      '!src/index.ts',
       '!src/config/*',
       '!src/utils/Logger.ts',
     ],
