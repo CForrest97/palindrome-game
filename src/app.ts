@@ -1,14 +1,14 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import { join } from 'path';
 
-import Logger from './utils/Logger';
-import { port } from './config';
+import routes from './routes';
 
 const app = express();
-const logger = new Logger(__filename);
 app.use(express.static(join(__dirname, 'public')));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => res.render('index.html'));
-app.get('/api', (req, res) => res.sendStatus(200));
+app.use('/api/v1/', routes);
 
-app.listen(port, () => logger.debug(`Server: ${process.pid}, listening on port: ${port}`));
+export default app;

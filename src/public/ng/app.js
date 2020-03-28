@@ -27,9 +27,9 @@ app.controller('GameController', function($scope, GameService) {
 
 app.service('GameService', function($http) {
 	this.getScores = function() {
-		return $http.get('/api/getScores');
+		return $http.get('/api/v1/scores');
 	};
 	this.submitEntry = function(entry) {
-		return $http.post('/api/submitEntry', entry);
+		return $http.post('/api/v1/scores', entry);
 	};
 });
