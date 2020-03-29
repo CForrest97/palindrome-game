@@ -1,0 +1,92 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Palindrome Game API",
+    "description": "This is a simple API for playing the Palindrome Game",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "/api/v1"
+    }
+  ],
+  "paths": {
+    "/scores": {
+      "get": {
+        "summary": "Get top 5 scores",
+        "description": "Returns the top 5 scores, each consisting of { name, points }\n",
+        "operationId": "getTopScores",
+        "responses": {
+          "200": {
+            "description": "top 5 scores from current game",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Score"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add entry",
+        "description": "Adds an players word and name to the game system",
+        "operationId": "addEntry",
+        "requestBody": {
+          "description": "Inventory item to add",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Entry"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Word is palindrome"
+          },
+          "400": {
+            "description": "invalid input or word is not a palindrome"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Score": {
+        "required": ["name", "points"],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Alice"
+          },
+          "points": {
+            "type": "number",
+            "example": 17
+          }
+        }
+      },
+      "Entry": {
+        "required": ["name", "word"],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Alice"
+          },
+          "word": {
+            "type": "string",
+            "example": "A nut for a jar of tuna"
+          }
+        }
+      }
+    }
+  }
+}

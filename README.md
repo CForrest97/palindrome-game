@@ -1,13 +1,35 @@
-<h1 align="center">Welcome to Palindrome Game 👋</h1>
-<p>
+<h1 align="center">Welcome to the Palindrome Game 👋</h1>
+<!-- <p>
   <a href="abc.com" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
-</p>
+</p> -->
 
 > In the game a user can enter their name and a word. If the word is a palindrome then a high score should be recorded, the score being the length of the string. A palindrome is a word, phrase, number, or other sequence of characters which reads the same backward or forward. E.g. “bob”, “a man a plan a canal panama”. It is up to you what are considered valid characters.
 
+## Overview
+
+> A simple web app to handle playing the `Palindrome Game`. I focused on using [Clean Code](https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29) in order to create readable code that is maintainable.
+>
+> Some of the developer tools used throughout this app:
+>
+> - Typescript
+> - Jest
+> - ESLint
+> - Stryker
+> - Husky
+> - Nodemon
+> - Swagger UI
+
 ## Install
+
+> Cloning the repo
+
+```sh
+git clone git@github.com:CForrest97/palindrome-game.git
+```
+
+> Install dependencies
 
 ```sh
 npm i
@@ -16,13 +38,24 @@ npm i
 ## Usage
 
 ```sh
-npm run start:dev
+npm start
 ```
+
+> Visit http://localhost:3000 to play the game
+>
+> Visit http://localhost:3000/api-docs to view documentation
 
 ## Run tests
 
 ```sh
-npm t
+npm run test:full
+```
+
+## Development Scripts
+
+```sh
+npm run start:dev
+npm run test:watch
 ```
 
 ## Author
