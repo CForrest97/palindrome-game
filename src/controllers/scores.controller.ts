@@ -1,11 +1,13 @@
 import { Request, Response } from 'express';
-import PalindromeGame from '../services/PalindromeGame.service';
+import { getGame } from '../state';
 
-const palindromeGame = new PalindromeGame();
-
-const getScores = (req: Request, res: Response) => res.send(palindromeGame.getTopScores());
+const getScores = (req: Request, res: Response) => {
+  const palindromeGame = getGame();
+  res.send(palindromeGame.getTopScores());
+};
 
 const postScores = (req: Request, res: Response) => {
+  const palindromeGame = getGame();
   const { name, word } = req.body;
   try {
     const points = palindromeGame.addEntry(name, word);
