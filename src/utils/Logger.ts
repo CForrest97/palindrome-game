@@ -7,19 +7,20 @@ export default class Logger {
   constructor(context: string) {
     this.logger = getLogger();
 
+    const contextName = 'context';
     const config = {
       appenders: {
         out: {
           type: 'stdout',
           layout: {
             type: 'pattern',
-            pattern: `%[[%d{dd/MM/yy hh:mm:ss} %X{${context}}] [%p]%] %m`,
+            pattern: `%[[%d{dd/MM/yy hh:mm:ss} %X{${contextName}}] [%p]%] %m`,
           },
         },
       },
       categories: { default: { appenders: ['out'], level: logLevel } },
     };
-    this.logger.addContext(context, context);
+    this.logger.addContext(contextName, context);
     configure(config);
   }
 

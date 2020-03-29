@@ -1,5 +1,8 @@
 import { Request, Response } from 'express';
 import { getGame } from '../state';
+import Logger from '../utils/Logger';
+
+const logger = new Logger(__filename);
 
 const getScores = (req: Request, res: Response) => {
   const palindromeGame = getGame();
@@ -13,6 +16,7 @@ const postScores = (req: Request, res: Response) => {
     const points = palindromeGame.addEntry({ name, word });
     return res.send({ points });
   } catch (err) {
+    logger.error(err.message);
     return res.status(400).send(err.message);
   }
 };

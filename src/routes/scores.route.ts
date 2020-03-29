@@ -22,9 +22,9 @@ const validatePostRequest = [
   (req: Request, res: Response, next: NextFunction) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.status(400).jsonp(errors.array());
+      return res.status(400).jsonp(errors.array());
     }
-    next();
+    return next();
   },
 ];
 
