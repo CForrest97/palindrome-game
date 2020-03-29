@@ -1,9 +1,6 @@
 import Score from '../interfaces/Score.interface';
 import PalindromeError from '../errors/PalindromeError';
-import { isPalindrome, trimWord } from '../helpers/Palindrome.helper';
-import Logger from '../utils/Logger';
-
-const logger = new Logger(__filename);
+import { isPalindrome, parseWord } from '../helpers/Palindrome.helper';
 
 export default class PalindromeGame {
   private scores: Score[] = [];
@@ -12,9 +9,8 @@ export default class PalindromeGame {
 
   private static calculateWordScore(word: string): number {
     if (isPalindrome(word)) {
-      return trimWord(word).length;
+      return parseWord(word).length;
     }
-    logger.debug(`"${word}" is not a palindrome`);
     throw new PalindromeError(`"${word}" is not a palindrome`);
   }
 

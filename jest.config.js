@@ -9,5 +9,5 @@ module.exports = {
       lines: 90,
     },
   },
-  collectCoverageFrom: ['src/**/*.ts', '!src/utils/Logger.ts', '!src/index.ts'],
+  collectCoverageFrom: ['src/**/*.ts', '!src/utils/Logger.ts', '!src/config/*.ts', '!src/index.ts'],
 };

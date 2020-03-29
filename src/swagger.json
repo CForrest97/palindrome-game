@@ -37,7 +37,7 @@
         "description": "Adds an players word and name to the game system",
         "operationId": "addEntry",
         "requestBody": {
-          "description": "Inventory item to add",
+          "description": "Entry from playing game",
           "content": {
             "application/json": {
               "schema": {
@@ -83,7 +83,7 @@
           },
           "word": {
             "type": "string",
-            "example": "A nut for a jar of tuna"
+            "example": "Are we not pure? “No, sir!” Panama’s moody Noriega brags. “It is garbage!” Irony dooms a man—a prisoner up to new era."
           }
         }
       }

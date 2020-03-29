@@ -1,6 +1,5 @@
 import PalindromeGame from './PalindromeGame.service';
 import PalindromeError from '../errors/PalindromeError';
-import Logger from '../utils/Logger';
 
 describe('palindrome game', () => {
   it('should get top scores for empty game', () => {
@@ -62,13 +61,5 @@ describe('palindrome game', () => {
 
     expect(() => palindromeGame.addEntry('alice', 'abacus')).toThrow(PalindromeError);
     expect(() => palindromeGame.addEntry('alice', 'abacus')).toThrowError('"abacus" is not a palindrome');
-  });
-  it('should log an error if the word is not a palindrome', () => {
-    const palindromeGame = new PalindromeGame();
-    const loggerMock = jest.spyOn(Logger.prototype, 'debug');
-    loggerMock.mockImplementationOnce((msg: string) => msg);
-    expect(() => palindromeGame.addEntry('alice', 'abacus')).toThrow(PalindromeError);
-    expect(loggerMock).toHaveBeenCalledTimes(1);
-    expect(loggerMock).toHaveBeenCalledWith('"abacus" is not a palindrome');
   });
 });
