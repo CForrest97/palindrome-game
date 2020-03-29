@@ -14,7 +14,7 @@ const postScores = (req: Request, res: Response) => {
   const palindromeGame = getGame();
   const { name, word } = req.body;
   try {
-    const points = palindromeGame.addEntry(name, word);
+    const points = palindromeGame.addEntry({ name, word });
     return res.send({ points });
   } catch (err) {
     return res.status(400).send(err.message);

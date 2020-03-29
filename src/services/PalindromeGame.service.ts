@@ -1,6 +1,7 @@
 import Score from '../interfaces/Score.interface';
 import PalindromeError from '../errors/PalindromeError';
 import { isPalindrome, parseWord } from './Palindrome.service';
+import Entry from '../interfaces/Entry.interface';
 
 export default class PalindromeGame {
   private scores: Score[] = [];
@@ -19,7 +20,7 @@ export default class PalindromeGame {
     return sortedScores.slice(0, PalindromeGame.MAX_NUMBER_OF_SCORES_TO_SHOW);
   }
 
-  public addEntry(name: string, word: string): number {
+  public addEntry({ name, word }: Entry): number {
     const points = PalindromeGame.calculateWordScore(word);
     this.scores.push({ name, points });
     return points;

@@ -8,20 +8,20 @@ describe('palindrome game', () => {
   });
   it('should get top scores for a game with 1 entry', () => {
     const palindromeGame = new PalindromeGame();
-    palindromeGame.addEntry('alice', '');
+    palindromeGame.addEntry({ name: 'alice', word: '' });
     expect(palindromeGame.getTopScores()).toEqual([
       { name: 'alice', points: 0 },
     ]);
   });
   it('should return the number of points a word is worth', () => {
     const palindromeGame = new PalindromeGame();
-    const points = palindromeGame.addEntry('alice', '');
+    const points = palindromeGame.addEntry({ name: 'alice', word: '' });
     expect(points).toEqual(0);
   });
   it('should return all scores sorted by points', () => {
     const palindromeGame = new PalindromeGame();
-    palindromeGame.addEntry('alice', '');
-    palindromeGame.addEntry('bob', 'a');
+    palindromeGame.addEntry({ name: 'alice', word: '' });
+    palindromeGame.addEntry({ name: 'bob', word: 'a' });
     expect(palindromeGame.getTopScores()).toEqual([
       { name: 'bob', points: 1 },
       { name: 'alice', points: 0 },
@@ -30,13 +30,13 @@ describe('palindrome game', () => {
   it('should return only the 5 best scores', () => {
     const palindromeGame = new PalindromeGame();
 
-    palindromeGame.addEntry('alice', 'abccba');
-    palindromeGame.addEntry('blake', 'abcba');
-    palindromeGame.addEntry('carol', 'abba');
-    palindromeGame.addEntry('david', 'aba');
-    palindromeGame.addEntry('ellen', 'aa');
-    palindromeGame.addEntry('frank', 'a');
-    palindromeGame.addEntry('grace', '');
+    palindromeGame.addEntry({ name: 'alice', word: 'abccba' });
+    palindromeGame.addEntry({ name: 'blake', word: 'abcba' });
+    palindromeGame.addEntry({ name: 'carol', word: 'abba' });
+    palindromeGame.addEntry({ name: 'david', word: 'aba' });
+    palindromeGame.addEntry({ name: 'ellen', word: 'aa' });
+    palindromeGame.addEntry({ name: 'frank', word: 'a' });
+    palindromeGame.addEntry({ name: 'grace', word: '' });
 
     expect(palindromeGame.getTopScores()).toHaveLength(5);
     expect(palindromeGame.getTopScores()).toEqual([
@@ -50,7 +50,7 @@ describe('palindrome game', () => {
   it('should ignore spaces when counting points', () => {
     const palindromeGame = new PalindromeGame();
 
-    palindromeGame.addEntry('alice', '  a  bb    a    ');
+    palindromeGame.addEntry({ name: 'alice', word: '  a  bb    a    ' });
 
     expect(palindromeGame.getTopScores()).toEqual([
       { name: 'alice', points: 4 },
@@ -59,7 +59,7 @@ describe('palindrome game', () => {
   it('should throw an error if the word is NOT a palindrome', () => {
     const palindromeGame = new PalindromeGame();
 
-    expect(() => palindromeGame.addEntry('alice', 'abacus')).toThrow(PalindromeError);
-    expect(() => palindromeGame.addEntry('alice', 'abacus')).toThrowError('"abacus" is not a palindrome');
+    expect(() => palindromeGame.addEntry({ name: 'alice', word: 'abacus' })).toThrow(PalindromeError);
+    expect(() => palindromeGame.addEntry({ name: 'alice', word: 'abacus' })).toThrowError('"abacus" is not a palindrome');
   });
 });
