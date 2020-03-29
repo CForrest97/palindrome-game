@@ -1,6 +1,6 @@
-import { isPalindrome, parseWord } from './Palindrome.helper';
+import { isPalindrome, parseWord } from './Palindrome.service';
 
-describe('palindrome helper', () => {
+describe('palindrome service', () => {
   describe('isPalindrome', () => {
     it('should return true if word is same backwards', () => {
       const palindrome = 'racecar';

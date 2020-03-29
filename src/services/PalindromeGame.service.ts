@@ -1,6 +1,6 @@
 import Score from '../interfaces/Score.interface';
 import PalindromeError from '../errors/PalindromeError';
-import { isPalindrome, parseWord } from '../helpers/Palindrome.helper';
+import { isPalindrome, parseWord } from './Palindrome.service';
 
 export default class PalindromeGame {
   private scores: Score[] = [];
