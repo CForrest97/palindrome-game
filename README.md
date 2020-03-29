@@ -9,7 +9,7 @@
 
 ## Overview
 
-> A simple web app to handle playing the `Palindrome Game`. I focused on using [Clean Code](https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29) in order to create readable code that is maintainable.
+> A simple web app to handle playing the `Palindrome Game`.
 >
 > Some of the developer tools used throughout this app:
 >

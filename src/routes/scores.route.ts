@@ -1,12 +1,12 @@
-import { Router } from 'express';
-import { check } from 'express-validator';
+import {
+  Router, Request, Response, NextFunction,
+} from 'express';
+import { check, validationResult } from 'express-validator';
 import { getScores, postScores } from '../controllers/scores.controller';
 
 const router = Router();
 
-router.get('', getScores);
-
-router.post('', [
+const validatePostRequest = [
   check('name')
     .isString()
     .withMessage('`name` field must be a string')
@@ -19,6 +19,16 @@ router.post('', [
     .isString()
     .escape()
     .withMessage('`word` field is required'),
-], postScores);
+  (req: Request, res: Response, next: NextFunction) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.status(400).jsonp(errors.array());
+    }
+    next();
+  },
+];
+
+router.get('', getScores);
+router.post('', validatePostRequest, postScores);
 
 export default router;

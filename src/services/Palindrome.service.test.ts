@@ -10,12 +10,6 @@ describe('palindrome service', () => {
       const palindrome = 'abacus';
       expect(isPalindrome(palindrome)).toBe(false);
     });
-  });
-  describe('parseWord', () => {
-    it('should remove spaces from word', () => {
-      const palindrome = 'a man a plan a canal panama';
-      expect(parseWord(palindrome)).toBe('amanaplanacanalpanama');
-    });
     it('should ignore spaces', () => {
       const palindrome = 'a man a plan a canal panama';
       expect(isPalindrome(palindrome)).toBe(true);
@@ -27,6 +21,16 @@ describe('palindrome service', () => {
     it('should ignore non-alphanumeric characters', () => {
       const palindrome = 'borrow or rob?';
       expect(isPalindrome(palindrome)).toBe(true);
+    });
+  });
+  describe('parseWord', () => {
+    it('should remove spaces from word', () => {
+      const palindrome = 'a man a plan a canal panama';
+      expect(parseWord(palindrome)).toBe('amanaplanacanalpanama');
+    });
+    it('should remove non alphanumeric characters', () => {
+      const palindrome = 'a@bba!';
+      expect(parseWord(palindrome)).toBe('abba');
     });
   });
 });

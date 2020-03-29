@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { validationResult } from 'express-validator';
 import { getGame } from '../state';
 
 const getScores = (req: Request, res: Response) => {
@@ -8,9 +7,6 @@ const getScores = (req: Request, res: Response) => {
 };
 
 const postScores = (req: Request, res: Response) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) return res.status(400).jsonp(errors.array());
-
   const palindromeGame = getGame();
   const { name, word } = req.body;
   try {
