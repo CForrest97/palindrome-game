@@ -5,7 +5,8 @@
     "express": "4.16.2",
     "express-validator": "^6.4.0",
     "log4js": "^6.1.2",
-    "swagger-ui-express": "^4.1.4"
+    "swagger-ui-express": "^4.1.4",
+    "ts-node": "^9.0.0"
   },
   "scripts": {
     "start": "ts-node ./src/index.ts",
